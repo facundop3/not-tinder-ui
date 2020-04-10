@@ -1,0 +1,27 @@
+{
+  "name": "nottinderuikit",
+  "version": "1.0.1",
+  "description": "A Tinder like UI kit for react-native",
+  "main": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "tsc",
+    "build": "tsc"
+  },
+  "keywords": [
+    "Tinder",
+    "Tinder",
+    "ui"
+  ],
+  "author": "facundop3",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-native": "^0.62.2"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.9.0",
+    "metro-react-native-babel-preset": "^0.59.0"
+  }
+}
