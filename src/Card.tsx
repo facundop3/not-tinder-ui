@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import { View, StyleSheet } from "react-native";
 import colors from "./colors";
-const Card = ({ children }) => {
+const Card: FC = ({ children }) => {
   return <View style={styles.container}>{children}</View>;
 };
 
@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
     padding: 20,
     marginHorizontal: 20,
     marginVertical: 10,
-    backgroundColor: "white"
-  }
+    backgroundColor: "white",
+  },
 });
 
 export default Card;

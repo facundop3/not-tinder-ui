@@ -1,13 +1,12 @@
 {
   "name": "nottinderuikit",
-  "version": "1.0.1",
+  "version": "0.0.4",
   "description": "A Tinder like UI kit for react-native",
-  "main": "dist/index.d.ts",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "tsc",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "tsc"
   },
   "keywords": [
     "Tinder",
@@ -16,12 +15,17 @@
   ],
   "author": "facundop3",
   "license": "MIT",
-  "dependencies": {
-    "react": "^16.13.1",
-    "react-native": "^0.62.2"
-  },
   "devDependencies": {
     "@babel/preset-typescript": "^7.9.0",
-    "metro-react-native-babel-preset": "^0.59.0"
+    "@types/react": "^16.9.34",
+    "@types/react-native": "^0.62.2",
+    "react": "~16.9.0",
+    "react-dom": "~16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz"
+  },
+  "peerDependencies": {
+    "react": "~16.9.0",
+    "react-dom": "~16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz"
   }
 }

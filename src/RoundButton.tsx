@@ -4,7 +4,7 @@ import {
   TouchableWithoutFeedback,
   View,
   Text,
-  Animated
+  Animated,
 } from "react-native";
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
   width?: number;
 }
 
-const RoundButton: React.FC<Props> = props => {
+const RoundButton: React.FC<Props> = (props) => {
   const {
     onPress,
     children = "Like",
@@ -27,19 +27,21 @@ const RoundButton: React.FC<Props> = props => {
     shadow,
     border,
     height,
-    width
+    width,
   } = props;
   const [scale] = useState<any>(new Animated.Value(1));
   const animateIn = () => {
     Animated.timing(scale, {
       toValue: 0.9,
-      duration: 100
+      duration: 100,
+      useNativeDriver: true,
     }).start();
   };
   const animateOut = () => {
     Animated.timing(scale, {
       toValue: 1,
-      duration: 80
+      duration: 80,
+      useNativeDriver: true,
     }).start();
   };
   const styles = StyleSheet.create({
@@ -52,26 +54,26 @@ const RoundButton: React.FC<Props> = props => {
       alignItems: "center",
       borderWidth: border ? 0.5 : 0,
       borderColor: "rgba(0,0,0,0.2)",
-      backgroundColor: color
+      backgroundColor: color,
     },
     shadows: {
       ...(shadow && {
         shadowColor: "#000",
         shadowOffset: {
           width: 0,
-          height: 2
+          height: 2,
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 4,
         borderRadius: size / 2,
         height: height ? height : size,
-        width: width ? width : size
-      })
+        width: width ? width : size,
+      }),
     },
     animatedStyle: {
-      transform: [{ scale }]
-    }
+      transform: [{ scale }],
+    },
   });
 
   return (

@@ -24,12 +24,14 @@ const CustomSwitch: FC<Props> = ({
     Animated.timing(toggleToleft, {
       toValue: 50,
       duration: 400,
+      useNativeDriver: true,
     }).start();
   };
   const toggleLeft = () => {
     Animated.timing(toggleToleft, {
       toValue: 0,
       duration: 400,
+      useNativeDriver: true,
     }).start();
   };
   const handlePress = () => {

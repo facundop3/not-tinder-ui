@@ -5,12 +5,12 @@ import colors from "./colors";
 const RangeSlider = () => {
   const [minValue, setMinValue] = useState<number>(18);
   const [maxValue, setMaxValue] = useState<number>(55);
-  const handleMinChange = (value) => {
+  const handleMinChange = (value: number) => {
     const nextMin = value < maxValue ? value : minValue;
     console.log("nextMin:", nextMin);
     setMinValue(nextMin);
   };
-  const handleMaxChange = (value) => {
+  const handleMaxChange = (value: number) => {
     const nextMax = value > minValue ? value : maxValue;
     console.log("NextMax:", nextMax);
     setMaxValue(nextMax);
