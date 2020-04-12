@@ -1,10 +1,9 @@
 {
   "name": "nottinderuikit",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A Tinder like UI kit for react-native",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "prepublish": "tsc"
   },
@@ -21,7 +20,8 @@
     "@types/react-native": "^0.62.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-test-renderer": "^16.13.1"
   },
   "peerDependencies": {
     "react": "^16.9.0",
