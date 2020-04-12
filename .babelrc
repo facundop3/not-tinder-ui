@@ -1,3 +1,10 @@
 {
-  "presets": ["@babel/preset-typescript"]
+  "presets": [
+    "@babel/preset-typescript",
+    "@babel/env",
+    "@babel/react"
+  ],
+  "test": [
+    "jest"
+  ]
 }

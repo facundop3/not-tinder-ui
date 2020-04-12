@@ -10,15 +10,22 @@
     "test": "jest"
   },
   "jest": {
-    "presets": [
-      "react-native"
+    "preset": "react-native",
+    "timers": "fake",
+    "collectCoverageFrom": [
+      "src/*.tsx",
+      "!src/index.ts",
+      "!src/colors.ts"
     ],
+    "collectCoverage": true,
+    "globals": {
+      "__DEV__": true
+    },
     "setupFilesAfterEnv": [
-      "jest-enzyme"
+      "<rootDir>.ci/setupTests.js"
     ],
-    "testEnvironment": "enzyme",
-    "testEnvironmentOptions": {
-      "enzymeAdapter": "react16"
+    "transform": {
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
     }
   },
   "keywords": [
@@ -29,11 +36,14 @@
   "author": "facundop3",
   "license": "MIT",
   "devDependencies": {
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
     "@types/jest": "^25.2.1",
     "@types/react": "^16.9.34",
     "@types/react-native": "^0.62.2",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -41,8 +51,11 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
+    "jest": "^25.3.0",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
+    "jest-transform-stub": "^2.0.0",
+    "metro-react-native-babel-preset": "^0.59.0",
     "react": "^16.9.0",
     "react-dom": "^16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
@@ -52,8 +65,5 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz"
-  },
-  "dependencies": {
-    "jest": "^25.3.0"
   }
 }
