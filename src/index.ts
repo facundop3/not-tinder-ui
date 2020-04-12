@@ -3,7 +3,7 @@ import Chip from './Chip';
 import RoundButton from './RoundButton';
 import CustomSwitch from './CustomSwitch';
 import colors from './colors';
-import Modal from './Modal';
+import SafeAreaModal from './SafeAreaModal';
 import LabeledInput from './LabeledInput';
 import RadioButton from './RadioButton';
 import LabeledRadioButtons from './LabeledRadioButtons';
@@ -18,7 +18,7 @@ export {
   RoundButton,
   CustomSwitch,
   colors,
-  Modal,
+  SafeAreaModal,
   LabeledInput,
   RadioButton,
   LabeledRadioButtons,

@@ -6,18 +6,17 @@ interface Props {
   children: React.ReactNode;
   animationType?: "slide" | "none" | "fade";
 }
-const CandidateModal: FC<Props> = (props) => {
+const SafeAreaModal: FC<Props> = (props) => {
   const { visible, children, animationType = 'slide' } = props;
   return (
     <Modal
       animationType={animationType}
       transparent={false}
       visible={visible}
-      {...props}
     >
       <SafeAreaView>{children}</SafeAreaView>
     </Modal>
   );
 };
 
-export default CandidateModal;
+export default SafeAreaModal;
