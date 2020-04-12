@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import { View, TouchableWithoutFeedback } from "react-native";
-import colors from "./colors";
+import React, { FC } from 'react';
+import { View, TouchableWithoutFeedback } from 'react-native';
+import colors from './colors';
 
 interface Props {
   selected?: boolean;
   style?: any;
   handlePress?: (ev: any) => void;
 }
-const RadioButton: FC<Props> = props => {
+const RadioButton: FC<Props> = (props) => {
   const { selected = false, style = {}, handlePress = () => {} } = props;
 
   return (
@@ -20,8 +20,8 @@ const RadioButton: FC<Props> = props => {
             borderRadius: 12,
             borderWidth: 2,
             borderColor: selected ? colors.red : colors.darkGrey,
-            alignItems: "center",
-            justifyContent: "center"
+            alignItems: 'center',
+            justifyContent: 'center'
           },
           style
         ]}

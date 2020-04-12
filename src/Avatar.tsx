@@ -1,5 +1,5 @@
-import React from "react";
-import { Image, StyleSheet } from "react-native";
+import React from 'react';
+import { Image, StyleSheet } from 'react-native';
 
 interface Props {
   size?: number;
@@ -9,9 +9,9 @@ interface Props {
 const Avatar: React.FC<Props> = ({ source, size = 60, style = {} }) => {
   const styles = StyleSheet.create({
     avatar: {
-      overflow: "hidden",
+      overflow: 'hidden',
       borderWidth: 1,
-      borderColor: "rgba(0,0,0,0.2)",
+      borderColor: 'rgba(0,0,0,0.2)',
       width: size,
       height: size,
       borderRadius: size / 2,

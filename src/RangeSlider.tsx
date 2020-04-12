@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Slider } from "react-native";
-import colors from "./colors";
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, Slider } from 'react-native';
+import colors from './colors';
 
 const RangeSlider = () => {
   const [minValue, setMinValue] = useState<number>(18);
   const [maxValue, setMaxValue] = useState<number>(55);
   const handleMinChange = (value: number) => {
     const nextMin = value < maxValue ? value : minValue;
-    console.log("nextMin:", nextMin);
     setMinValue(nextMin);
   };
   const handleMaxChange = (value: number) => {
     const nextMax = value > minValue ? value : maxValue;
-    console.log("NextMax:", nextMax);
     setMaxValue(nextMax);
   };
   useEffect(() => {}, [minValue, maxValue]);
@@ -46,27 +44,27 @@ const RangeSlider = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     padding: 15,
   },
   redLabel: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     padding: 10,
     color: colors.red,
   },
   label: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     padding: 10,
   },
   distanceLabel: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   slider: {
-    width: "100%",
+    width: '100%',
     height: 40,
   },
   sliderContainer: {

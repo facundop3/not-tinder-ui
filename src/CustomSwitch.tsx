@@ -1,10 +1,10 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC } from 'react';
 import {
   TouchableWithoutFeedback,
   StyleSheet,
   View,
   Animated,
-} from "react-native";
+} from 'react-native';
 
 interface Props {
   handleChange: (isToggledRight: boolean) => any;
@@ -49,7 +49,7 @@ const CustomSwitch: FC<Props> = ({
         <View style={styles.iconContainer}>{leftIcon}</View>
         <Animated.View
           style={{ ...styles.toggleBall, left: toggleToleft }}
-        ></Animated.View>
+        />
         <View style={{ ...styles.iconContainer, left: undefined, right: 10 }}>
           {rightIcon}
         </View>
@@ -60,28 +60,28 @@ const CustomSwitch: FC<Props> = ({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     height: 40,
     width: 100,
-    backgroundColor: "#edba59",
+    backgroundColor: '#edba59',
     padding: 5,
     borderRadius: 30,
-    position: "relative",
+    position: 'relative',
   },
   toggleBall: {
     borderWidth: 0.5,
-    borderColor: "rgba(0,0,0,0.2)",
+    borderColor: 'rgba(0,0,0,0.2)',
     width: 60,
     height: 50,
     borderRadius: 30,
-    overflow: "hidden",
-    backgroundColor: "white",
-    position: "absolute",
+    overflow: 'hidden',
+    backgroundColor: 'white',
+    position: 'absolute',
   },
   iconContainer: {
     zIndex: 2,
-    position: "absolute",
+    position: 'absolute',
     left: 10,
   },
 });

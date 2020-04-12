@@ -1,39 +1,40 @@
-import React, { FC, useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import RadioButton from "./RadioButton";
+import React, { FC, useState } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import RadioButton from './RadioButton';
 
-interface option {
+interface Option {
   value: string;
   label: string;
 }
 interface Props {
   label: string;
-  options: option[];
+  options: Option[];
 }
 const LabeledRadioButtons: FC<Props> = (props) => {
   const { label, options } = props;
-  const [selectedOption, setSelectedOption] = useState<option>({
-    value: "",
-    label: "",
+  const [selectedOption, setSelectedOption] = useState<Option>({
+    value: '',
+    label: '',
   });
-  const handlePress = (label: option) => {
-    setSelectedOption(label);
+  const handlePress = (option: Option) => {
+    setSelectedOption(option);
   };
   return (
     <View>
-      <Text style={styles.label}> {label}</Text>
+      <Text style={styles.label}>
+        {' '}
+        {label}
+      </Text>
       <View style={styles.container}>
-        {options.map((option) => {
-          return (
-            <View style={styles.radioContainer} key={option.value}>
-              <RadioButton
-                selected={selectedOption.value === option.value}
-                handlePress={() => handlePress(option)}
-              />
-              <Text style={styles.radioLabel}>{option.label}</Text>
-            </View>
-          );
-        })}
+        {options.map((option) => (
+          <View style={styles.radioContainer} key={option.value}>
+            <RadioButton
+              selected={selectedOption.value === option.value}
+              handlePress={() => handlePress(option)}
+            />
+            <Text style={styles.radioLabel}>{option.label}</Text>
+          </View>
+        ))}
       </View>
     </View>
   );
@@ -41,19 +42,19 @@ const LabeledRadioButtons: FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     padding: 15,
   },
   label: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     padding: 10,
   },
   radioContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     paddingHorizontal: 15,
     paddingVertical: 5,
-    alignItems: "center",
+    alignItems: 'center',
   },
   radioLabel: {
     marginLeft: 5,

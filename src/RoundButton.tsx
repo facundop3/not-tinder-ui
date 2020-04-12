@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   StyleSheet,
   TouchableWithoutFeedback,
   View,
   Text,
   Animated,
-} from "react-native";
+} from 'react-native';
 
 interface Props {
   onPress: () => void;
@@ -21,9 +21,9 @@ interface Props {
 const RoundButton: React.FC<Props> = (props) => {
   const {
     onPress,
-    children = "Like",
+    children = 'Like',
     size = 60,
-    color = "white",
+    color = 'white',
     shadow,
     border,
     height,
@@ -46,19 +46,19 @@ const RoundButton: React.FC<Props> = (props) => {
   };
   const styles = StyleSheet.create({
     button: {
-      height: height ? height : size,
-      width: width ? width : size,
+      height: height || size,
+      width: width || size,
       borderRadius: size / 2,
-      overflow: "hidden",
-      justifyContent: "center",
-      alignItems: "center",
+      overflow: 'hidden',
+      justifyContent: 'center',
+      alignItems: 'center',
       borderWidth: border ? 0.5 : 0,
-      borderColor: "rgba(0,0,0,0.2)",
+      borderColor: 'rgba(0,0,0,0.2)',
       backgroundColor: color,
     },
     shadows: {
       ...(shadow && {
-        shadowColor: "#000",
+        shadowColor: '#000',
         shadowOffset: {
           width: 0,
           height: 2,
@@ -67,8 +67,8 @@ const RoundButton: React.FC<Props> = (props) => {
         shadowRadius: 3.84,
         elevation: 4,
         borderRadius: size / 2,
-        height: height ? height : size,
-        width: width ? width : size,
+        height: height || size,
+        width: width || size,
       }),
     },
     animatedStyle: {

@@ -1,6 +1,8 @@
-import React, { FC } from "react";
-import { View, Text, TextInput, StyleSheet } from "react-native";
-import colors from "./colors";
+import React, { FC } from 'react';
+import {
+  View, Text, TextInput, StyleSheet
+} from 'react-native';
+import colors from './colors';
 
 interface Props {
   label: string;
@@ -10,7 +12,7 @@ interface Props {
   lines?: number;
   max?: number;
 }
-const LabeledInput: FC<Props> = props => {
+const LabeledInput: FC<Props> = (props) => {
   const {
     label,
     onTextChange,
@@ -22,10 +24,10 @@ const LabeledInput: FC<Props> = props => {
 
   const styles = StyleSheet.create({
     container: {
-      position: "relative"
+      position: 'relative'
     },
     input: {
-      backgroundColor: "#FFF",
+      backgroundColor: '#FFF',
       height: multiline ? 150 : 40,
       paddingHorizontal: 15,
       fontSize: 18
@@ -34,10 +36,10 @@ const LabeledInput: FC<Props> = props => {
       paddingHorizontal: 15,
       paddingVertical: 5,
       fontSize: 20,
-      fontWeight: "bold"
+      fontWeight: 'bold'
     },
     charCounter: {
-      position: "absolute",
+      position: 'absolute',
       bottom: 15,
       right: 15,
       color: colors.darkGrey

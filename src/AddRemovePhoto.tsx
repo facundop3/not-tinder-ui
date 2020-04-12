@@ -1,12 +1,13 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode } from 'react';
 import {
   View,
   StyleSheet,
   TouchableWithoutFeedback,
   Image,
-} from "react-native";
-import RoundButton from "./RoundButton";
-import colors from "./colors";
+} from 'react-native';
+import RoundButton from './RoundButton';
+import colors from './colors';
+
 interface Props {
   id: string;
   addIcon: ReactNode;
@@ -23,50 +24,48 @@ const AddRemovePhoto: FC<Props> = ({
   saveImage,
   imageSource,
   handlePress,
-}) => {
-  return (
-    <TouchableWithoutFeedback onPress={() => saveImage(id)}>
-      <View style={styles.AddRemovePhoto}>
-        {imageSource ? (
-          <Image source={imageSource} style={styles.image} />
-        ) : (
-          <View style={styles.dashedContainer} />
-        )}
-        <View style={{ position: "absolute", right: -10, bottom: -10 }}>
-          <RoundButton
-            size={30}
-            border
-            onPress={() => handlePress(id)}
-            color={colors.red}
-          >
-            {imageSource ? removeIcon : addIcon}
-          </RoundButton>
-        </View>
+}) => (
+  <TouchableWithoutFeedback onPress={() => saveImage(id)}>
+    <View style={styles.AddRemovePhoto}>
+      {imageSource ? (
+        <Image source={imageSource} style={styles.image} />
+      ) : (
+        <View style={styles.dashedContainer} />
+      )}
+      <View style={{ position: 'absolute', right: -10, bottom: -10 }}>
+        <RoundButton
+          size={30}
+          border
+          onPress={() => handlePress(id)}
+          color={colors.red}
+        >
+          {imageSource ? removeIcon : addIcon}
+        </RoundButton>
       </View>
-    </TouchableWithoutFeedback>
-  );
-};
+    </View>
+  </TouchableWithoutFeedback>
+);
 
 const styles = StyleSheet.create({
   AddRemovePhoto: {
     height: 150,
-    width: "30%",
-    marginVertical: " 2%",
+    width: '30%',
+    marginVertical: ' 2%',
   },
   dashedContainer: {
     backgroundColor: colors.grey,
     borderColor: colors.darkGrey,
     borderWidth: 2,
     borderRadius: 10,
-    borderStyle: "dashed",
-    position: "absolute",
-    height: "100%",
-    width: "100%",
+    borderStyle: 'dashed',
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
   },
   image: {
     borderRadius: 10,
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
   },
 });
 

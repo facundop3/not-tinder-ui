@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { Modal, SafeAreaView } from "react-native";
+import React, { FC } from 'react';
+import { Modal, SafeAreaView } from 'react-native';
 
 interface Props {
   visible: boolean;
@@ -7,7 +7,7 @@ interface Props {
   animationType?: "slide" | "none" | "fade";
 }
 const CandidateModal: FC<Props> = (props) => {
-  const { visible, children, animationType = "slide" } = props;
+  const { visible, children, animationType = 'slide' } = props;
   return (
     <Modal
       animationType={animationType}
