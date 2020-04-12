@@ -1,6 +1,6 @@
 {
   "name": "nottinderuikit",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A Tinder like UI kit for react-native",
   "main": "./dist/index.js",
   "scripts": {

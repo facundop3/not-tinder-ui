@@ -10,6 +10,7 @@ import LabeledRadioButtons from "./LabeledRadioButtons";
 import Slider from "./Slider";
 import RangeSlider from "./RangeSlider";
 import Card from "./Card";
+import AddRemovePhoto from "./AddRemovePhoto";
 export {
   Avatar,
   Chip,
@@ -23,4 +24,5 @@ export {
   Slider,
   RangeSlider,
   Card,
+  AddRemovePhoto,
 };
