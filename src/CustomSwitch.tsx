@@ -1,4 +1,4 @@
-import React, { useState, FC } from 'react';
+import React, { useState, FC, ReactNode } from 'react';
 import {
   TouchableWithoutFeedback,
   StyleSheet,
@@ -7,10 +7,10 @@ import {
 } from 'react-native';
 
 interface Props {
-  handleChange: (isToggledRight: boolean) => any;
+  handleChange: (isToggledRight: boolean) => void;
   isToggledRight: boolean;
-  leftIcon: any;
-  rightIcon: any;
+  leftIcon: ReactNode;
+  rightIcon: ReactNode;
 }
 
 const CustomSwitch: FC<Props> = ({
