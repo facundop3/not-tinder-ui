@@ -5,6 +5,6 @@ cp scripts/git-hooks/* .git/hooks && chmod +x .git/hooks/*
   then
       echo "✨  git hooks instaled 💪"
   else
-    echo "😅  Something went wrong, \n  You can manually add the content of folder git-hooks and paste it on .git/hooks folder (at the root directory of this repo) \n  After that, you'll have to make those files excecutables by running \"chmod +x .git/hooks/*\" on the command line (at the root directory of this repo) " >&2
+    echo "😅  Something went wrong, \n  You can manually add the content of folder git-hooks and paste it on .git/hooks folder (at the root directory of this repo) \n  After that, you'll have to make those files executables by running \"chmod +x .git/hooks/*\" on the command line (at the root directory of this repo) " >&2
     exit 1
   fi
