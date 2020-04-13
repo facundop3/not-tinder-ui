@@ -1,7 +1,12 @@
 {
   "name": "nottinderuikit",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A Tinder like UI kit for react-native",
+  "homepage": "https://github.com/facundop3/not-tinder-ui/#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/facundop3/not-tinder-ui.git"
+  },
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
