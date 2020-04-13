@@ -13,7 +13,12 @@ Using yarn, run: `yarn add nottinderuikit`
 ### Usage:
 Start using the components in your app:
 ```js
-import {RoundedButton} from 'nottinderuikit'
+import {RoundedButton} from 'nottinderuikit';
+import AntDesign from '@expo/vector-icons/AntDesign';
+
+  <RoundButton onPress={() => horizontalSwipe(true)} shadow border>
+    <AntDesign name='heart' size={30} color={colors.green} />
+  </RoundButton>
 
 ```
 ### Components Included:
