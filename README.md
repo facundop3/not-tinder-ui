@@ -2,6 +2,9 @@
 # not-tinder-ui
 A Tinder like UI set of components for react-native
 
+<img width="1233" alt="Screen Shot 2020-04-12 at 00 45 04" src="https://user-images.githubusercontent.com/29029506/79090508-4fd4e800-7d20-11ea-8030-c55a17e7bdfd.png">
+
+
 # Collaborators section:
 ## Installing git hooks on your local repo:
 In order to get this we included a simple sh script that copies the hooks on the `scripts/git-hooks` on the `.git/hooks` folder of this repo and makes them executables.
