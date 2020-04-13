@@ -11,6 +11,7 @@ import Slider from './Slider';
 import RangeSlider from './RangeSlider';
 import Card from './Card';
 import AddRemovePhoto from './AddRemovePhoto';
+import CurrentIndexIndicator from './CurrentIndexIndicator';
 
 export {
   Avatar,
@@ -26,4 +27,5 @@ export {
   RangeSlider,
   Card,
   AddRemovePhoto,
+  CurrentIndexIndicator
 };
