@@ -10,6 +10,9 @@ import Slider from './Slider';
 import Card from './Card';
 import AddRemovePhoto from './AddRemovePhoto';
 import CurrentIndexIndicator from './CurrentIndexIndicator';
+import ChatBubble from './ChatBubble';
+import ChatInput from './ChatInput';
+import MediaCard from './MediaCard';
 
 export {
   Avatar,
@@ -23,5 +26,8 @@ export {
   Slider,
   Card,
   AddRemovePhoto,
-  CurrentIndexIndicator
+  CurrentIndexIndicator,
+  ChatBubble,
+  ChatInput,
+  MediaCard
 };
