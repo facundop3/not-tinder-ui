@@ -6,19 +6,12 @@ import {
   View,
   TouchableWithoutFeedback,
   Animated,
+  Dimensions
 } from 'react-native';
 import colors from './colors';
 import CurrentIndexIndicator from './CurrentIndexIndicator';
 
-interface Opacities {
-  left: number | Animated.AnimatedInterpolation;
-  right: number | Animated.AnimatedInterpolation;
-  down: number | Animated.AnimatedInterpolation;
-
-}
-
 interface Props {
-  opacities: Opacities;
   leftLabel: string;
   rightLabel: string;
   downLabel: string;
@@ -27,10 +20,10 @@ interface Props {
   handleCurrentImageChange: (n: number, length: number) => void;
   onBottomPress: () => void;
   bottomData: ReactNode;
+  animatedCardPosition?: Animated.ValueXY;
 }
 const MediaCard: FC<Props> = (props) => {
   const {
-    opacities,
     leftLabel,
     rightLabel,
     downLabel,
@@ -38,8 +31,24 @@ const MediaCard: FC<Props> = (props) => {
     bottomData,
     images,
     currentImageIndex = 0,
-    handleCurrentImageChange
+    handleCurrentImageChange,
+    animatedCardPosition
   } = props;
+  const { width, height } = Dimensions.get('window');
+  const leftOpacity = animatedCardPosition?.x.interpolate({
+    inputRange: [0, width / 4],
+    outputRange: [0, 1]
+  });
+  const rightOpacity = animatedCardPosition?.x.interpolate({
+    inputRange: [-width / 4, 0],
+    outputRange: [1, 0]
+  });
+  const downOpacity = animatedCardPosition?.y.interpolate({
+    inputRange: [-height / 4, 0],
+    outputRange: [1, 0]
+  });
+
+
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -47,22 +56,26 @@ const MediaCard: FC<Props> = (props) => {
           style={styles.image}
           source={images[currentImageIndex]}
         />
-        <Animated.View
-          style={[styles.leftLabelContainer, { opacity: opacities.left }]}
-        >
-          <Text style={styles.leftLabelText}>{leftLabel}</Text>
-        </Animated.View>
-        <Animated.View
-          style={[styles.rightLabelContainer, { opacity: opacities.right }]}
-        >
-          <Text style={styles.rightLabelText}>{rightLabel}</Text>
-        </Animated.View>
-        <Animated.View
-          style={[styles.bottomLabelContainer, { opacity: opacities.down }]}
-        >
-          <Text style={styles.bottomLabelText}>{downLabel}</Text>
-        </Animated.View>
-        <View style={styles.candidateDataContainer}>
+        {animatedCardPosition && (
+          <>
+            <Animated.View
+              style={[styles.leftLabelContainer, { opacity: leftOpacity }]}
+            >
+              <Text style={styles.leftLabelText}>{leftLabel}</Text>
+            </Animated.View>
+            <Animated.View
+              style={[styles.rightLabelContainer, { opacity: rightOpacity }]}
+            >
+              <Text style={styles.rightLabelText}>{rightLabel}</Text>
+            </Animated.View>
+            <Animated.View
+              style={[styles.bottomLabelContainer, { opacity: downOpacity }]}
+            >
+              <Text style={styles.bottomLabelText}>{downLabel}</Text>
+            </Animated.View>
+          </>
+        )}
+        <View style={styles.bottomDataContainer}>
           {bottomData}
         </View>
       </View>
@@ -105,7 +118,7 @@ const styles = StyleSheet.create({
     height: '100%',
     resizeMode: 'cover',
   },
-  candidateDataContainer: {
+  bottomDataContainer: {
     position: 'absolute',
     bottom: 20,
     left: 10,

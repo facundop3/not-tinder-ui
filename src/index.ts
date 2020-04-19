@@ -13,6 +13,7 @@ import CurrentIndexIndicator from './CurrentIndexIndicator';
 import ChatBubble from './ChatBubble';
 import ChatInput from './ChatInput';
 import MediaCard from './MediaCard';
+import SwipeableWrapper from './SwipeableWrapper';
 
 export {
   Avatar,
@@ -29,5 +30,6 @@ export {
   CurrentIndexIndicator,
   ChatBubble,
   ChatInput,
-  MediaCard
+  MediaCard,
+  SwipeableWrapper
 };

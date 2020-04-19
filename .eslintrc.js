@@ -5,6 +5,7 @@ module.exports = {
     jest: true,
   },
   rules: {
+    "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
     "no-use-before-define": "off",
     "react/jsx-filename-extension": "off",
     "react/prop-types": "off",
