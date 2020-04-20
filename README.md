@@ -52,6 +52,7 @@ export default function App() {
   // verticalCallback is called when the card is swiped up
   const verticalCallback = () => {
     console.log("verticalCallback");
+    resetPosition();
   };
   // horizontalCallback is called when the card is swiped horizontally
   // Check isLeftToRight value to know in witch direction it was swiped
@@ -61,6 +62,16 @@ export default function App() {
     } else {
       console.log("Is right to left");
     }
+    resetPosition();
+  };
+
+  // In this sample we use resetPosition to re use the same card for this examples
+  const resetPosition = (delay: number = 0) => {
+    Animated.timing(initialPosition, {
+      toValue: { x: 0, y: 0 },
+      duration: 250,
+      delay,
+    }).start();
   };
 
   return (

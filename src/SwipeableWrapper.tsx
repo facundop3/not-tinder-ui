@@ -23,7 +23,6 @@ const SwipeableWrapper: FC<Props> = ({
       duration: 500,
     }).start(() => {
       verticalCallback();
-      resetPosition();
     });
   };
 
@@ -35,7 +34,6 @@ const SwipeableWrapper: FC<Props> = ({
       duration: 400,
     }).start(() => {
       horizontalCallback(isLeftToRight);
-      resetPosition();
     });
   };
 
