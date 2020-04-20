@@ -2,23 +2,51 @@ import React, { FC, ReactElement } from 'react';
 import { Animated, PanResponder, Dimensions } from 'react-native';
 
 interface Props {
-  verticalSwipe: () => void;
-  horizontalSwipe: (isSwipedRight: boolean) => void;
-  resetPosition: (isCompleted: boolean) => void;
+  verticalCallback: () => void;
+  horizontalCallback: (isLeftToRight: boolean) => void;
   children: ReactElement<any, any> | null;
-  animatedDefaultPosition?: Animated.ValueXY;
-
+  animatedDefaultPosition: Animated.ValueXY;
 }
 const SwipeableWrapper: FC<Props> = ({
-  verticalSwipe,
-  horizontalSwipe,
-  resetPosition,
   children,
-  animatedDefaultPosition
+  animatedDefaultPosition,
+  verticalCallback,
+  horizontalCallback,
 }) => {
   const { width, height } = Dimensions.get('window');
   const horizontalSwipeBreakpoint = 0.25 * width;
   const verticalSwipeBreakPoint = 0.25 * height;
+  const verticalSwipe = () => {
+    Animated.timing(animatedDefaultPosition, {
+      useNativeDriver: false,
+      toValue: { x: 0, y: -height },
+      duration: 500,
+    }).start(() => {
+      verticalCallback();
+      resetPosition();
+    });
+  };
+
+  const horizontalSwipe = (isLeftToRight = false) => {
+    const translateX = (isLeftToRight ? 1 : -1) * width * 1.5;
+    Animated.timing(animatedDefaultPosition, {
+      useNativeDriver: false,
+      toValue: { x: translateX, y: 0 },
+      duration: 400,
+    }).start(() => {
+      horizontalCallback(isLeftToRight);
+      resetPosition();
+    });
+  };
+
+  const resetPosition = () => {
+    Animated.timing(animatedDefaultPosition, {
+      useNativeDriver: false,
+      toValue: { x: 0, y: 0 },
+      duration: 250
+    }).start();
+  };
+
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onMoveShouldSetPanResponder: (event, gesture) => {
@@ -37,7 +65,7 @@ const SwipeableWrapper: FC<Props> = ({
       } else if (gesture.dy < -verticalSwipeBreakPoint) {
         verticalSwipe();
       } else {
-        resetPosition(false);
+        resetPosition();
       }
     }
   });
@@ -56,13 +84,11 @@ const SwipeableWrapper: FC<Props> = ({
     };
   };
 
-  return animatedDefaultPosition
-    ? (
-      <Animated.View style={getCardStyle()} {...panResponder.panHandlers}>
-        {children}
-      </Animated.View>
-    )
-    : children;
+  return (
+    <Animated.View style={getCardStyle()} {...panResponder.panHandlers}>
+      {children}
+    </Animated.View>
+  );
 };
 
 export default SwipeableWrapper;
