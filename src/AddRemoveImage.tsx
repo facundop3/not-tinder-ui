@@ -12,8 +12,8 @@ interface Props {
   id: string;
   addIcon: ReactNode;
   removeIcon: ReactNode;
-  addCallback: (image?: any) => void;
-  removeCallback: (image?: any) => void;
+  addCallback: (id?: string) => void | Promise<void>;
+  removeCallback: (id?: string) => void | Promise<void>;
   imageSource?: { uri: string };
 }
 
@@ -28,7 +28,7 @@ const AddRemoveImage: FC<Props> = ({
   <View
     style={{
       width: '100%',
-      alignItems: 'center',
+      alignItems: 'center'
     }}
   >
     <TouchableWithoutFeedback onPress={() => !imageSource && addCallback(id)}>
