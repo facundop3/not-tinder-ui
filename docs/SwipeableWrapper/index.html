@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>SwipeableWrapper · not-tinder-ui</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="SwipeableWrapper "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="SwipeableWrapper · not-tinder-ui"/><meta property="og:type" content="website"/><meta property="og:url" content="https://facundop3.github.io/not-tinder-uiindex"/><meta property="og:description" content="SwipeableWrapper "/><meta property="og:image" content="https://facundop3.github.io/not-tinder-ui/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://facundop3.github.io/not-tinder-ui/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/not-tinder-uiimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/not-tinder-uijs/scrollSpy.js"></script><link rel="stylesheet" href="/not-tinder-uicss/main.css"/><script src="/not-tinder-uijs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/not-tinder-ui"><img class="logo" src="/not-tinder-uiimg/whiteFire.svg" alt="not-tinder-ui"/><h2 class="headerTitleWithLogo">not-tinder-ui</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/not-tinder-uidocs/Introduction" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Components</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Get started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/not-tinder-uidocs/Introduction">Introduction</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Components</h3><ul class=""><li class="navListItem"><a class="navItem" href="/not-tinder-uidocs/AddRemoveImage">AddRemoveImage</a></li><li class="navListItem"><a class="navItem" href="/not-tinder-uidocs/Avatar">Avatar</a></li><li class="navListItem"><a class="navItem" href="/not-tinder-uidocs/Card">Card</a></li><li class="navListItem"><a class="navItem" href="/not-tinder-uidocs/ChatBubble">ChatBubble</a></li><li class="navListItem"><a class="navItem" href="/not-tinder-uidocs/ChatInput">ChatInput</a></li><li class="navListItem"><a class="navItem" href="/not-tinder-uidocs/CustomSwitch">CustomSwitch</a></li><li class="navListItem"><a class="navItem" href="/not-tinder-uidocs/LabeledInput">LabeledInput</a></li><li class="navListItem"><a class="navItem" href="/not-tinder-uidocs/LabeledRadioButtons">LabeledRadioButtons</a></li><li class="navListItem"><a class="navItem" href="/not-tinder-uidocs/MediaCard">MediaCard</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/not-tinder-uidocs/SwipeableWrapper">SwipeableWrapper</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">SwipeableWrapper</h1></header><article><div><span><p>SwipeableWrapper</p>
+<h2><a class="anchor" aria-hidden="true" id="usage"></a><a href="#usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h2>
+<p><img src="/not-tinder-uidocs/assets/gifs/SwipeableWrapper.gif" alt="SwipeableWrapper_example"></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { View, Text, Animated } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>
+<span class="hljs-keyword">import</span> { SwipeableWrapper, MediaCard } <span class="hljs-keyword">from</span> <span class="hljs-string">'nottinderuikit'</span>
+
+<span class="hljs-keyword">const</span> SwipeableCard = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-comment">// Sample Array of images from Unsplash</span>
+  <span class="hljs-keyword">const</span> images = [
+    {
+      <span class="hljs-attr">uri</span>:
+        <span class="hljs-string">"https://images.unsplash.com/photo-1586470208442-67c5c1abbc78?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=933&amp;q=80"</span>,
+    },
+    {
+      <span class="hljs-attr">uri</span>:
+        <span class="hljs-string">"https://images.unsplash.com/photo-1516908205727-40afad9449a8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=935&amp;q=80"</span>,
+    },
+    {
+      <span class="hljs-attr">uri</span>:
+        <span class="hljs-string">"https://images.unsplash.com/photo-1586557009709-63ac91998176?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=975&amp;q=80"</span>,
+    },
+    {
+      <span class="hljs-attr">uri</span>:
+        <span class="hljs-string">"https://images.unsplash.com/photo-1520271348391-049dd132bb7c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=934&amp;q=80"</span>,
+    },
+  ];
+  <span class="hljs-comment">// Here we manage the current image by it's index</span>
+  <span class="hljs-keyword">const</span> [currentIndex, setCurrentIndex] = useState(<span class="hljs-number">0</span>);
+  <span class="hljs-keyword">const</span> nextImage = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-comment">// This circular loop on the images array</span>
+    setCurrentIndex((currentIndex + <span class="hljs-number">1</span>) % images.length);
+  };
+  <span class="hljs-comment">// Here we create the initial Animated ValueXY</span>
+  <span class="hljs-keyword">const</span> initialPosition = <span class="hljs-keyword">new</span> Animated.ValueXY();
+  <span class="hljs-comment">// verticalCallback is called when the card is swiped up</span>
+  <span class="hljs-keyword">const</span> verticalCallback = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"verticalCallback"</span>);
+    resetPosition();
+  };
+  <span class="hljs-comment">// horizontalCallback is called when the card is swiped horizontally</span>
+  <span class="hljs-comment">// Check isLeftToRight value to know in witch direction it was swiped</span>
+  <span class="hljs-keyword">const</span> horizontalCallback = <span class="hljs-function">(<span class="hljs-params">isLeftToRight: boolean</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (isLeftToRight) {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Is left to right"</span>);
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Is right to left"</span>);
+    }
+    resetPosition();
+  };
+
+  <span class="hljs-comment">// In this sample we use resetPosition to re use the same card for this examples</span>
+  <span class="hljs-keyword">const</span> resetPosition = <span class="hljs-function">(<span class="hljs-params">delay: number = <span class="hljs-number">0</span></span>) =&gt;</span> {
+    Animated.timing(initialPosition, {
+      <span class="hljs-attr">toValue</span>: { <span class="hljs-attr">x</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">0</span> },
+      <span class="hljs-attr">duration</span>: <span class="hljs-number">250</span>,
+      delay,
+    }).start();
+  };
+
+
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>
+    <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
+      <span class="hljs-attr">height:</span> "<span class="hljs-attr">80</span>%",
+      <span class="hljs-attr">width:</span> "<span class="hljs-attr">100</span>%",
+    }}
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">SwipeableWrapper</span>
+      <span class="hljs-attr">positionXY</span>=<span class="hljs-string">{initialPosition}</span>
+      <span class="hljs-attr">verticalCallback</span>=<span class="hljs-string">{verticalCallback}</span>
+      <span class="hljs-attr">horizontalCallback</span>=<span class="hljs-string">{horizontalCallback}</span>
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">MediaCard</span>
+        <span class="hljs-attr">positionXY</span>=<span class="hljs-string">{initialPosition}</span>
+        <span class="hljs-attr">leftLabel</span>=<span class="hljs-string">"Yup"</span>
+        <span class="hljs-attr">rightLabel</span>=<span class="hljs-string">"Nope"</span>
+        <span class="hljs-attr">downLabel</span>=<span class="hljs-string">"super yup"</span>
+        <span class="hljs-attr">images</span>=<span class="hljs-string">{images}</span>
+        <span class="hljs-attr">currentImageIndex</span>=<span class="hljs-string">{currentIndex}</span>
+        <span class="hljs-attr">handleCurrentImageChange</span>=<span class="hljs-string">{nextImage}</span>
+        <span class="hljs-attr">onBottomPress</span>=<span class="hljs-string">{()</span> =&gt;</span> {
+          console.log("bottom press");
+        }}
+        bottomData={
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">color:</span> "#<span class="hljs-attr">FFF</span>", <span class="hljs-attr">fontWeight:</span> "<span class="hljs-attr">bold</span>", <span class="hljs-attr">fontSize:</span> <span class="hljs-attr">20</span> }}&gt;</span>
+            Swipe me !
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        }
+      /&gt;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">SwipeableWrapper</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> SwipeableCard
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="props"></a><a href="#props" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Props</h2>
+<p>verticalCallback?: () =&gt; void;
+horizontalCallback?: (isLeftToRight: boolean) =&gt; void;
+children: ReactElement&lt;any, any&gt; | null;
+positionXY: Animated.ValueXY;</p>
+<ul>
+<li><a href="#children"><code>children</code></a></li>
+<li><a href="#positionxy"><code>positionXY</code></a></li>
+<li><a href="#verticalcallback"><code>verticalCallback</code></a></li>
+<li><a href="#horizontalcallback"><code>horizontalCallback</code></a></li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="reference"></a><a href="#reference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reference</h2>
+<h3><a class="anchor" aria-hidden="true" id="children"></a><a href="#children" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>children</code></h3>
+<p>Component to make swipeable.</p>
+<table>
+<thead>
+<tr><th style="text-align:center">Type</th><th style="text-align:center">Default</th><th style="text-align:center">Required</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">ReactNode</td><td style="text-align:center">undefined</td><td style="text-align:center">true</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="positionxy"></a><a href="#positionxy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>positionXY</code></h3>
+<p><a href="https://reactnative.dev/docs/animated#valuexy">Animated value of the position X Y.</a></p>
+<table>
+<thead>
+<tr><th style="text-align:center">Type</th><th style="text-align:center">Default</th><th style="text-align:center">Required</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">React.Animated.valueXY</td><td style="text-align:center">undefined</td><td style="text-align:center">true</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="verticalcallback"></a><a href="#verticalcallback" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>verticalCallback</code></h3>
+<p>Function called whtn the children component is swiped up.</p>
+<table>
+<thead>
+<tr><th style="text-align:center">Type</th><th style="text-align:center">Default</th><th style="text-align:center">Required</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">function: ()=&gt; any</td><td style="text-align:center">()=&gt;{}</td><td style="text-align:center">false</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="horizontalcallback"></a><a href="#horizontalcallback" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>horizontalCallback</code></h3>
+<p>Function called whtn the children component is swiped horizontally.
+This function will be called with the <code>isLeftToRight</code> bolean param, telling us the direction of the swipe.</p>
+<table>
+<thead>
+<tr><th style="text-align:center">Type</th><th style="text-align:center">Default</th><th style="text-align:center">Required</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">function: (isLeftToRight: boolean)=&gt; any</td><td style="text-align:center">()=&gt;{}</td><td style="text-align:center">false</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/not-tinder-uidocs/MediaCard"><span class="arrow-prev">← </span><span class="function-name-prevnext">MediaCard</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#usage">Usage</a></li><li><a href="#props">Props</a></li><li><a href="#reference">Reference</a><ul class="toc-headings"><li><a href="#children"><code>children</code></a></li><li><a href="#positionxy"><code>positionXY</code></a></li><li><a href="#verticalcallback"><code>verticalCallback</code></a></li><li><a href="#horizontalcallback"><code>horizontalCallback</code></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/not-tinder-ui" class="nav-home"><img src="/not-tinder-uiimg/favicon.ico" alt="not-tinder-ui" width="66" height="58"/></a><div><h5>Docs</h5><a href="/not-tinder-uidocs/en/doc1.html">Getting Started (or other categories)</a><a href="/not-tinder-uidocs/en/doc2.html">Guides (or other categories)</a><a href="/not-tinder-uidocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/not-tinder-uien/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/not-tinder-uiblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/not-tinder-uiimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Your Name or Your Company Name</section></footer></div></body></html>
