@@ -1,4 +1,3 @@
-# WIP ⚠️ 
 # not-tinder-ui
 A Tinder like UI set of components for react-native
 
@@ -9,6 +8,10 @@ A Tinder like UI set of components for react-native
 ### Instalation:
 Using npm, run:  `npm install nottinderuikit`
 Using yarn, run: `yarn add nottinderuikit`
+
+## Documentation -> [here](https://facundop3.github.io/not-tinder-ui/docs/Introduction)
+Or here https://facundop3.github.io/not-tinder-ui/
+  
 
 ### Usage:
 Super simple Swipeable card:
@@ -111,10 +114,6 @@ const SwipeableCard = () => {
 export default SwipeableCard
 ```
 
-
-
-### Components Included:
-bla bla bla
 
 ### Demo app:
 We have developed a Tinder like react-native app using this base components, the code is available [here](https://github.com/facundop3/not-tinder)
