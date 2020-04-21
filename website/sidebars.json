@@ -1,7 +1,7 @@
 {
   "docs": {
     "Get started": [
-      "doc1"
+      "Introduction"
     ],
     "Components": [
       "AddRemoveImage",
@@ -10,16 +10,10 @@
       "ChatBubble",
       "ChatInput",
       "CustomSwitch",
-      "LabeledInput"
-    ],
-    "Second Category": [
-      "doc3"
-    ]
-  },
-  "docs-other": {
-    "First Category": [
-      "doc4",
-      "doc5"
+      "LabeledInput",
+      "LabeledRadioButtons",
+      "MediaCard",
+      "SwipeableWrapper"
     ]
   }
 }

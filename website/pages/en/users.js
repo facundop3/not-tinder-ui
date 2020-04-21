@@ -4,6 +4,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+/* eslint-disable */
 
 const React = require('react');
 
@@ -13,7 +14,7 @@ const Container = CompLibrary.Container;
 
 class Users extends React.Component {
   render() {
-    const {config: siteConfig} = this.props;
+    const { config: siteConfig } = this.props;
     if ((siteConfig.users || []).length === 0) {
       return null;
     }

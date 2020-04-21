@@ -12,8 +12,8 @@ interface Props {
   id: string;
   addIcon: ReactNode;
   removeIcon: ReactNode;
-  addCallback: (id?: string) => void | Promise<void>;
-  removeCallback: (id?: string) => void | Promise<void>;
+  addCallback: (id?: string) => any;
+  removeCallback: (id?: string) => any;
   imageSource?: { uri: string };
 }
 

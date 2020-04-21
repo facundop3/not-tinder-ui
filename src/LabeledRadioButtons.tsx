@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import RadioButton from './RadioButton';
 
@@ -9,16 +9,29 @@ interface Option {
 interface Props {
   label: string;
   options: Option[];
+  onChange?: (newSelectedOption: Option) => any;
+  defaultSelectedValue?: string
 }
 const LabeledRadioButtons: FC<Props> = (props) => {
-  const { label, options } = props;
+  const {
+    label, options, defaultSelectedValue, onChange = () => { }
+  } = props;
   const [selectedOption, setSelectedOption] = useState<Option>({
     value: '',
     label: '',
   });
   const handlePress = (option: Option) => {
+    if (option.value === selectedOption.value) return;
     setSelectedOption(option);
+    onChange(option);
   };
+  useEffect(() => {
+    const optionFromValue = options.find(
+      ({ value }) => value === defaultSelectedValue
+    );
+    setSelectedOption(optionFromValue || selectedOption);
+  }, []);
+
   return (
     <View>
       <Text style={styles.label}>

@@ -1,3 +1,4 @@
+/* eslint-disable */
 const React = require('react');
 
 const CompLibrary = require('../../core/CompLibrary.js');

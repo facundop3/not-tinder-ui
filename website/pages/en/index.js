@@ -4,7 +4,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
+/* eslint-disable */
 const React = require('react');
 
 const CompLibrary = require('../../core/CompLibrary.js');
@@ -64,7 +64,7 @@ class HomeSplash extends React.Component {
         <div className="inner">
           <ProjectTitle tagline={siteConfig.tagline} title={siteConfig.title} />
           <PromoSection>
-            <Button href="#try">Try It Out</Button>
+            {/* <Button href="#try">Try It Out</Button> */}
             <Button href={docUrl('AddRemoveImage.html')}>View Components</Button>
             {/* <Button href={docUrl('doc2.html')}>Example Link 2</Button> */}
           </PromoSection>
@@ -196,14 +196,14 @@ class Index extends React.Component {
     return (
       <div>
         <HomeSplash siteConfig={siteConfig} language={language} />
-        <div className="mainContainer">
+        {/* <div className="mainContainer">
           <Features />
           <FeatureCallout />
           <LearnHow />
           <TryOut />
           <Description />
           <Showcase />
-        </div>
+        </div> */}
       </div>
     );
   }

@@ -97,9 +97,9 @@ Icon shown on the bottom right of the component when there's no imageSource prov
 
 Function called when the component is pressed and there's no imageSource.
 
-|  Type                                            | Default       | Required |
-| :----------------------------------------------: | :-----------: | :------: |
-| function: ( id: string ) => void | Promise<void> |   undefined   | true     |
+|  Type                           | Default       | Required |
+| :-----------------------------: | :-----------: | :------: |
+| function: ( id: string ) => any |   undefined   | true     |
 
 ---
 ### `removeIcon`
@@ -118,9 +118,9 @@ Icon shown on the bottom right of the component when there is imageSource provid
 
 Function called when the [removeIcon](#removeIcon) is pressed.
 
-|  Type                                           | Default       | Required |
-| :---------------------------------------------: | :-----------: | :------: |
-| function: ( id: string ) => void | Promise<void>|   undefined   | true     |
+|  Type                           | Default       | Required |
+| :-----------------------------: | :-----------: | :------: |
+| function: ( id: string ) => any |   undefined   | true     |
 
 ---
 ---

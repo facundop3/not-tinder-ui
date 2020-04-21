@@ -29,42 +29,39 @@
         "title": "CustomSwitch",
         "sidebar_label": "CustomSwitch"
       },
-      "doc1": {
-        "title": "Instalation",
-        "sidebar_label": "Introduction"
-      },
-      "doc2": {
-        "title": "document number 2"
-      },
-      "doc3": {
-        "title": "This is document number 3"
-      },
-      "doc9": {
-        "title": "Components",
-        "sidebar_label": "Components"
-      },
       "doc4": {
         "title": "Api sample"
       },
       "doc5": {
         "title": "Fifth Document"
       },
+      "Introduction": {
+        "title": "Instalation",
+        "sidebar_label": "Introduction"
+      },
       "LabeledInput": {
         "title": "LabeledInput",
         "sidebar_label": "LabeledInput"
+      },
+      "LabeledRadioButtons": {
+        "title": "LabeledRadioButtons",
+        "sidebar_label": "LabeledRadioButtons"
+      },
+      "MediaCard": {
+        "title": "MediaCard",
+        "sidebar_label": "MediaCard"
+      },
+      "SwipeableWrapper": {
+        "title": "SwipeableWrapper",
+        "sidebar_label": "SwipeableWrapper"
       }
     },
     "links": {
-      "Docs": "Docs",
-      "API": "API",
-      "Help": "Help",
-      "Blog": "Blog"
+      "Docs": "Docs"
     },
     "categories": {
       "Get started": "Get started",
-      "Components": "Components",
-      "Second Category": "Second Category",
-      "First Category": "First Category"
+      "Components": "Components"
     }
   },
   "pages-strings": {

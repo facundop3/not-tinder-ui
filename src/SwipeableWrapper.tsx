@@ -2,22 +2,22 @@ import React, { FC, ReactElement } from 'react';
 import { Animated, PanResponder, Dimensions } from 'react-native';
 
 interface Props {
-  verticalCallback: () => void;
-  horizontalCallback: (isLeftToRight: boolean) => void;
+  verticalCallback?: () => void;
+  horizontalCallback?: (isLeftToRight: boolean) => void;
   children: ReactElement<any, any> | null;
-  animatedDefaultPosition: Animated.ValueXY;
+  positionXY: Animated.ValueXY;
 }
 const SwipeableWrapper: FC<Props> = ({
   children,
-  animatedDefaultPosition,
-  verticalCallback,
-  horizontalCallback,
+  positionXY,
+  verticalCallback = () => { },
+  horizontalCallback = () => { },
 }) => {
   const { width, height } = Dimensions.get('window');
   const horizontalSwipeBreakpoint = 0.25 * width;
   const verticalSwipeBreakPoint = 0.25 * height;
   const verticalSwipe = () => {
-    Animated.timing(animatedDefaultPosition, {
+    Animated.timing(positionXY, {
       useNativeDriver: false,
       toValue: { x: 0, y: -height },
       duration: 500,
@@ -28,7 +28,7 @@ const SwipeableWrapper: FC<Props> = ({
 
   const horizontalSwipe = (isLeftToRight = false) => {
     const translateX = (isLeftToRight ? 1 : -1) * width * 1.5;
-    Animated.timing(animatedDefaultPosition, {
+    Animated.timing(positionXY, {
       useNativeDriver: false,
       toValue: { x: translateX, y: 0 },
       duration: 400,
@@ -38,7 +38,7 @@ const SwipeableWrapper: FC<Props> = ({
   };
 
   const resetPosition = () => {
-    Animated.timing(animatedDefaultPosition, {
+    Animated.timing(positionXY, {
       useNativeDriver: false,
       toValue: { x: 0, y: 0 },
       duration: 250
@@ -53,7 +53,7 @@ const SwipeableWrapper: FC<Props> = ({
       return Boolean(dx && dy);
     },
     onPanResponderMove: (event, gesture) => (
-      animatedDefaultPosition?.setValue({ x: gesture.dx, y: gesture.dy })
+      positionXY?.setValue({ x: gesture.dx, y: gesture.dy })
     ),
     onPanResponderRelease: (event, gesture) => {
       if (gesture.dx > horizontalSwipeBreakpoint) {
@@ -68,14 +68,14 @@ const SwipeableWrapper: FC<Props> = ({
     }
   });
   const getCardStyle = () => {
-    const rotate = animatedDefaultPosition?.x.interpolate({
+    const rotate = positionXY?.x.interpolate({
       // We increase the range to make the rotation increase slowlier
       inputRange: [-width * 1.5, 0, width * 1.5],
       outputRange: ['120deg', '0deg', '-120deg']
     });
 
     return {
-      ...animatedDefaultPosition?.getLayout(),
+      ...positionXY?.getLayout(),
       transform: [{ rotate }],
       justifyContent: 'center',
       alignItems: 'center'

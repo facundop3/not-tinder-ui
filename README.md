@@ -17,11 +17,11 @@ Super simple Swipeable card:
 
 #### Code: 
 ```js
-import React, { useState } from "react";
-import { Text, View, Animated } from "react-native";
-import { SwipeableWrapper, MediaCard } from "nottinderuikit";
+import React, { useState } from 'react'
+import { View, Text, Animated } from 'react-native'
+import { SwipeableWrapper, MediaCard } from 'nottinderuikit'
 
-export default function App() {
+const SwipeableCard = () => {
   // Sample Array of images from Unsplash
   const images = [
     {
@@ -74,46 +74,41 @@ export default function App() {
     }).start();
   };
 
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-      }}
+
+  return <View
+    style={{
+      height: "80%",
+      width: "100%",
+    }}
+  >
+    <SwipeableWrapper
+      positionXY={initialPosition}
+      verticalCallback={verticalCallback}
+      horizontalCallback={horizontalCallback}
     >
-      <View
-        style={{
-          height: "80%",
-          width: "100%",
+      <MediaCard
+        positionXY={initialPosition}
+        leftLabel="Yup"
+        rightLabel="Nope"
+        downLabel="super yup"
+        images={images}
+        currentImageIndex={currentIndex}
+        handleCurrentImageChange={nextImage}
+        onBottomPress={() => {
+          console.log("bottom press");
         }}
-      >
-        <SwipeableWrapper
-          animatedDefaultPosition={initialPosition}
-          verticalCallback={verticalCallback}
-          horizontalCallback={horizontalCallback}
-        >
-          <MediaCard
-            animatedCardPosition={initialPosition}
-            leftLabel="Yup"
-            rightLabel="Nope"
-            downLabel="super yup"
-            images={images}
-            currentImageIndex={currentIndex}
-            handleCurrentImageChange={nextImage}
-            onBottomPress={() => {
-              console.log("bottom press");
-            }}
-            bottomData={
-              <Text style={{ color: "#FFF", fontWeight: "bold", fontSize: 20 }}>
-                Swipe me !
+        bottomData={
+          <Text style={{ color: "#FFF", fontWeight: "bold", fontSize: 20 }}>
+            Swipe me !
               </Text>
-            }
-          />
-        </SwipeableWrapper>
-      </View>
-    </View>
-  );
+        }
+      />
+    </SwipeableWrapper>
+  </View>
+
 }
+
+export default SwipeableCard
 ```
 
 

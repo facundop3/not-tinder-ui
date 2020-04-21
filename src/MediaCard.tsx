@@ -12,38 +12,38 @@ import colors from './colors';
 import CurrentIndexIndicator from './CurrentIndexIndicator';
 
 interface Props {
-  leftLabel: string;
-  rightLabel: string;
-  downLabel: string;
+  leftLabel?: string;
+  rightLabel?: string;
+  downLabel?: string;
   images: any[];
   currentImageIndex?: number;
-  handleCurrentImageChange: (n: number, length: number) => void;
-  onBottomPress: () => void;
-  bottomData: ReactNode;
-  animatedCardPosition?: Animated.ValueXY;
+  handleCurrentImageChange: (n: number) => any;
+  onBottomPress?: () => any;
+  bottomData?: ReactNode;
+  positionXY?: Animated.ValueXY;
 }
 const MediaCard: FC<Props> = (props) => {
   const {
-    leftLabel,
-    rightLabel,
-    downLabel,
-    onBottomPress,
+    leftLabel = '',
+    rightLabel = '',
+    downLabel = '',
+    onBottomPress = () => { },
     bottomData,
     images,
     currentImageIndex = 0,
     handleCurrentImageChange,
-    animatedCardPosition
+    positionXY
   } = props;
   const { width, height } = Dimensions.get('window');
-  const leftOpacity = animatedCardPosition?.x.interpolate({
+  const leftOpacity = positionXY?.x.interpolate({
     inputRange: [0, width / 4],
     outputRange: [0, 1]
   });
-  const rightOpacity = animatedCardPosition?.x.interpolate({
+  const rightOpacity = positionXY?.x.interpolate({
     inputRange: [-width / 4, 0],
     outputRange: [1, 0]
   });
-  const downOpacity = animatedCardPosition?.y.interpolate({
+  const downOpacity = positionXY?.y.interpolate({
     inputRange: [-height / 4, 0],
     outputRange: [1, 0]
   });
@@ -56,7 +56,7 @@ const MediaCard: FC<Props> = (props) => {
           style={styles.image}
           source={images[currentImageIndex]}
         />
-        {animatedCardPosition && (
+        {positionXY && (
           <>
             <Animated.View
               style={[styles.leftLabelContainer, { opacity: leftOpacity }]}
@@ -75,21 +75,26 @@ const MediaCard: FC<Props> = (props) => {
             </Animated.View>
           </>
         )}
-        <View style={styles.bottomDataContainer}>
-          {bottomData}
-        </View>
+        {
+          bottomData
+          && (
+          <View style={styles.bottomDataContainer}>
+            {bottomData}
+          </View>
+          )
+        }
       </View>
       <CurrentIndexIndicator
         listOfIds={images.map((e, i) => ({ id: String(i) }))}
         activeIndex={currentImageIndex}
       />
       <TouchableWithoutFeedback
-        onPress={() => handleCurrentImageChange(1, images.length)}
+        onPress={() => handleCurrentImageChange(1)}
       >
         <View style={styles.nextPic} />
       </TouchableWithoutFeedback>
       <TouchableWithoutFeedback
-        onPress={() => handleCurrentImageChange(-1, images.length)}
+        onPress={() => handleCurrentImageChange(-1)}
       >
         <View style={styles.previusPic} />
       </TouchableWithoutFeedback>
@@ -103,7 +108,7 @@ const MediaCard: FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: '95%',
+    width: '100%',
     borderWidth: 1,
     borderColor: 'rgba(0,0,0,0.2)',
     borderRadius: 10,
