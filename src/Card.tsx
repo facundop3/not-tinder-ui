@@ -6,6 +6,7 @@ const Card: FC = ({ children }) => <View style={styles.container}>{children}</Vi
 
 const styles = StyleSheet.create({
   container: {
+    width: '100%',
     borderWidth: 1,
     borderColor: colors.darkGrey,
     borderRadius: 5,

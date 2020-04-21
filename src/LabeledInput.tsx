@@ -8,7 +8,6 @@ interface Props {
   label: string;
   onTextChange: (text: string) => void;
   value: string;
-  multiline?: boolean;
   lines?: number;
   max?: number;
 }
@@ -17,14 +16,14 @@ const LabeledInput: FC<Props> = (props) => {
     label,
     onTextChange,
     value,
-    multiline = false,
     lines = 1,
     max = 500
   } = props;
-
+  const multiline = lines > 1;
   const styles = StyleSheet.create({
     container: {
-      position: 'relative'
+      position: 'relative',
+      width: '100%'
     },
     input: {
       backgroundColor: '#FFF',

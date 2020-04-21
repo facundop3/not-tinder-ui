@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import {
-  View, StyleSheet, TextInput, TouchableWithoutFeedback, GestureResponderEvent
+  View, StyleSheet, TextInput, TouchableWithoutFeedback, GestureResponderEvent, Text
 } from 'react-native';
 import colors from './colors';
 
@@ -8,10 +8,10 @@ interface Props {
   value: string;
   handleChangeText: (text: string) => void;
   handleSend?: (e: GestureResponderEvent) => void;
-  icon?: ReactElement;
+  sendIcon?: ReactElement;
 }
 const ChatInput: FC<Props> = ({
-  value, handleChangeText, handleSend = () => { }, icon
+  value, handleChangeText, handleSend = () => { }, sendIcon
 }) => (
   <View style={styles.container}>
     <TextInput
@@ -21,19 +21,15 @@ const ChatInput: FC<Props> = ({
       value={value}
       placeholder="Say something"
     />
-    {
-        icon
-        && (
-        <View style={styles.sendIcon}>
-          <TouchableWithoutFeedback onPress={handleSend}>
-            {icon}
-          </TouchableWithoutFeedback>
-        </View>
-        )
-      }
+    <View style={styles.sendIcon}>
+      <TouchableWithoutFeedback onPress={handleSend}>
+        {
+            sendIcon || <Text style={styles.sendLabel}>Send</Text>
+          }
+      </TouchableWithoutFeedback>
+    </View>
   </View>
 );
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
@@ -55,6 +51,9 @@ const styles = StyleSheet.create({
   sendIcon: {
     position: 'absolute',
     right: 25,
+  },
+  sendLabel: {
+    fontWeight: 'bold'
   }
 });
 

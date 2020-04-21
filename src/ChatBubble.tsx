@@ -19,6 +19,7 @@ const ChatBubble: FC<Props> = ({ text, isInbound }) => {
       fontSize: 16,
       overflow: 'hidden',
       color: isInbound ? 'black' : 'white',
+      marginVertical: 5
     }
   });
   return (

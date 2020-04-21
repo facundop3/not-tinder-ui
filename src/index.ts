@@ -8,7 +8,7 @@ import RadioButton from './RadioButton';
 import LabeledRadioButtons from './LabeledRadioButtons';
 import Slider from './Slider';
 import Card from './Card';
-import AddRemovePhoto from './AddRemovePhoto';
+import AddRemoveImage from './AddRemoveImage';
 import CurrentIndexIndicator from './CurrentIndexIndicator';
 import ChatBubble from './ChatBubble';
 import ChatInput from './ChatInput';
@@ -26,7 +26,7 @@ export {
   LabeledRadioButtons,
   Slider,
   Card,
-  AddRemovePhoto,
+  AddRemoveImage,
   CurrentIndexIndicator,
   ChatBubble,
   ChatInput,
