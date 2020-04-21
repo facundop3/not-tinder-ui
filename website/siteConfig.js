@@ -24,7 +24,7 @@ const siteConfig = {
   title: 'not-tinder-ui', // Title for your website.
   tagline: 'A Tinder like UI set of components for react-native',
   url: 'https://facundop3.github.io', // Your website URL
-  baseUrl: '/not-tinder-ui', // Base URL for your project */
+  baseUrl: '/not-tinder-ui/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
