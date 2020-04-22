@@ -12,6 +12,8 @@ interface Props {
   id: string;
   addIcon: ReactNode;
   removeIcon: ReactNode;
+  height?: number;
+  width?: number;
   addCallback: (id?: string) => any;
   removeCallback: (id?: string) => any;
   imageSource?: { uri: string };
@@ -24,13 +26,32 @@ const AddRemoveImage: FC<Props> = ({
   addCallback,
   imageSource,
   removeCallback,
-}) => (
-  <View
-    style={{
+  width = 100,
+  height = 150
+}) => {
+  const styles = StyleSheet.create({
+    AddRemoveImage: {
+      height,
+      width
+    },
+    dashedContainer: {
+      backgroundColor: colors.grey,
+      borderColor: colors.darkGrey,
+      borderWidth: 2,
+      borderRadius: 10,
+      borderStyle: 'dashed',
+      position: 'absolute',
+      height: '100%',
       width: '100%',
-      alignItems: 'center'
-    }}
-  >
+    },
+    image: {
+      borderRadius: 10,
+      width: '100%',
+      height: '100%',
+    },
+  });
+
+  return (
     <TouchableWithoutFeedback onPress={() => !imageSource && addCallback(id)}>
       <View style={styles.AddRemoveImage}>
         {imageSource ? (
@@ -65,29 +86,7 @@ const AddRemoveImage: FC<Props> = ({
           )}
       </View>
     </TouchableWithoutFeedback>
-  </View>
-);
-const styles = StyleSheet.create({
-  AddRemoveImage: {
-    height: 150,
-    width: '30%',
-    marginVertical: ' 2%',
-  },
-  dashedContainer: {
-    backgroundColor: colors.grey,
-    borderColor: colors.darkGrey,
-    borderWidth: 2,
-    borderRadius: 10,
-    borderStyle: 'dashed',
-    position: 'absolute',
-    height: '100%',
-    width: '100%',
-  },
-  image: {
-    borderRadius: 10,
-    width: '100%',
-    height: '100%',
-  },
-});
+  );
+};
 
 export default AddRemoveImage;

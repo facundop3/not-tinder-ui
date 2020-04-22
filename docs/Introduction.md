@@ -1,6 +1,6 @@
 ---
 id: Introduction
-title: Instalation
+title: Installation
 sidebar_label: Introduction
 ---
 
@@ -15,7 +15,7 @@ yarn add nottinderuikit
 npm install nottinderuikit
 ```
 
-## Now you are ready for using the components on your react-native app
+## That's it, use the components on your react-native app
 
 ### Simple sample of a Swipeable Card:
 ```react

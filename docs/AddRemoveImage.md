@@ -67,6 +67,9 @@ export default AddRemove
 - [`removeIcon`](#removeicon)
 - [`removeCallback`](#removecallback)
 - [`imageSource`](#imagesource)
+- [`height`](#height)
+- [`width`](#width)
+
 
 ---
 ## Reference
@@ -131,5 +134,23 @@ Source object of the image
 |  Type                   | Default       | Required |
 | :---------------------: | :-----------: | :------: |
 | object: { uri: string } |   undefined   | false    |
+
+---
+### `height`
+
+Height of the AddRemoveImage component
+
+|  Type  | Default | Required |
+| :----: | :-----: | :------: |
+| number |   200   | false    |
+
+---
+### `width`
+
+Width of the AddRemoveImage component
+
+|  Type  | Default | Required |
+| :----: | :-----: | :------: |
+| number |   100   | false    |
 
 ---
